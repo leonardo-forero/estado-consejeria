@@ -1,20 +1,27 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>Consulta Consejeros SDACP</title>
-  <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Consulta SDACP</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <img src="sistema.png" alt="Logo SDACP">
-  <h1>Consulta de Estado</h1>
-  <p>Ingresa tu número de documento para saber tu estado en el Sistema Distrital de Arte, Cultura y Patrimonio.</p>
+  <!-- Imagen del sistema -->
+  <img src="sistema.png" alt="Logo SDACP" class="logo-sistema" />
 
-  <input type="text" id="documento" placeholder="Número de documento">
+  <!-- Título y descripción -->
+  <h1>Consulta tu estado como consejero</h1>
+  <p>Ingresa tu número de documento para verificar si haces parte del Sistema Distrital de Arte, Cultura y Patrimonio:</p>
+
+  <!-- Campo de entrada y botón -->
+  <input type="text" id="documento" placeholder="Número de documento" />
   <button onclick="consultar()">Consultar</button>
 
-  <p id="resultado"></p>
+  <!-- Resultado -->
+  <div id="resultado" class="tarjeta"></div>
 
+  <!-- Scripts -->
   <script src="script.js"></script>
 </body>
 </html>
