@@ -5,6 +5,15 @@ body {
     background-color: #6f4c9c; /* Color institucional de fondo */
 }
 
+
+h1 {
+    color: #ffb71b; /* Color institucional para el título */
+}
+
+p {
+    color: white; /* Texto descriptivo en blanco */
+}
+
 input {
     padding: 10px;
     width: 200px;
