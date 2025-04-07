@@ -9,18 +9,19 @@ async function consultar() {
     const response = await fetch("consejeros.json");
     const data = await response.json();
 
-    const consejero = data.find(persona => persona.numero_documento == documento);
+    // Cambiamos aquí para usar la clave correcta del JSON
+    const consejero = data.find(persona => persona["No. Documento"] == documento);
 
     // Crear la tarjeta
     const tarjeta = document.createElement("div");
     tarjeta.classList.add("tarjeta");
 
     if (consejero) {
-      if (consejero.estado.toLowerCase() === "activo") {
-        tarjeta.innerHTML = `<span class="icono">✅</span>${consejero.nombre} se encuentra activo en el Sistema Distrital de Arte, Cultura y Patrimonio y podrá hacer la solicitud de pasajes para la vigencia 2025 en las fechas establecidas.`;
+      if (consejero.Estado.toLowerCase() === "activo") {
+        tarjeta.innerHTML = `<span class="icono">✅</span>${consejero.Nombre} se encuentra activo en el Sistema Distrital de Arte, Cultura y Patrimonio y podrá hacer la solicitud de pasajes para la vigencia 2025 en las fechas establecidas.`;
         reproducirSonido("activo");
       } else {
-        tarjeta.innerHTML = `<span class="icono">⚠️</span>${consejero.nombre} se encuentra inactivo en el Sistema Distrital de Arte, Cultura y Patrimonio por trámite en curso de alguna de las causales del Artículo 62 del Decreto 480 de 2018, por tanto, no podrá acceder al apoyo de movilidad.`;
+        tarjeta.innerHTML = `<span class="icono">⚠️</span>${consejero.Nombre} se encuentra inactivo en el Sistema Distrital de Arte, Cultura y Patrimonio por trámite en curso de alguna de las causales del Artículo 62 del Decreto 480 de 2018, por tanto, no podrá acceder al apoyo de movilidad.`;
         reproducirSonido("inactivo");
       }
     } else {
