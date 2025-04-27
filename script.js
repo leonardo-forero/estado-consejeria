@@ -21,7 +21,7 @@ async function consultar() {
         tarjeta.innerHTML = `<span class="icono">✅</span>${consejero.Nombre} presenta consejería activa en el Sistema Distrital de Arte, Cultura y Patrimonio y podrá acceder a incentivos dirigidos a consejeras y consejeros del Sistema.`;
         reproducirSonido("activo");
       } else {
-        tarjeta.innerHTML = `<span class="icono">⚠️</span>${consejero.Nombre} presenta consejería inactiva en el Sistema Distrital de Arte, Cultura y Patrimonio por trámite en curso de alguna de las causales del Artículo 62 del Decreto 480 de 2018, por tanto, no podrá acceder a ningún incentivo dirigido a consejeras y consejeros del Sistema.`;
+        tarjeta.innerHTML = `<span class="icono">⚠️</span>${consejero.Nombre} presenta consejería inactiva en el Sistema Distrital de Arte, Cultura y Patrimonio por trámite en curso de alguna de las causales del Artículo 62 del Decreto 480 de 2018. Por lo tanto, no podrá acceder a ningún incentivo dirigido a consejeras y consejeros del Sistema.`;
         reproducirSonido("inactivo");
       }
     } else {
