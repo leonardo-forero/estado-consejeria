@@ -10,7 +10,7 @@ h1 {
     color: #ffb71b; /* Color institucional para el título */
 }
 
-p {
+p, li {
     color: white; /* Texto descriptivo en blanco */
 }
 
