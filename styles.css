@@ -14,6 +14,11 @@ p, li {
     color: white; /* Texto descriptivo en blanco */
 }
 
+ul {
+    list-style: none; /* Quita los puntos negros de la lista */
+    padding-left: 0; /* Elimina la sangría */
+}
+
 input {
     padding: 10px;
     width: 200px;
@@ -34,7 +39,7 @@ button {
     margin-top: 20px;
     font-size: 18px;
     font-weight: bold;
-    color: white; /* Texto en blanco como pediste */
+    color: white; /* Texto en blanco */
 }
 
 /* Estilo para la tarjeta */
