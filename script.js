@@ -18,10 +18,10 @@ async function consultar() {
 
     if (consejero) {
       if (consejero.Estado.toLowerCase() === "activo") {
-        tarjeta.innerHTML = `<span class="icono">✅</span>${consejero.Nombre} se encuentra activo en el Sistema Distrital de Arte, Cultura y Patrimonio y podrá hacer la solicitud de pasajes para la vigencia 2025 en las fechas establecidas.`;
+        tarjeta.innerHTML = `<span class="icono">✅</span>${consejero.Nombre} presenta consejería activa en el Sistema Distrital de Arte, Cultura y Patrimonio y podrá acceder a incentivos dirigidos a consejeras y consejeros del Sistema.`;
         reproducirSonido("activo");
       } else {
-        tarjeta.innerHTML = `<span class="icono">⚠️</span>${consejero.Nombre} se encuentra inactivo en el Sistema Distrital de Arte, Cultura y Patrimonio por trámite en curso de alguna de las causales del Artículo 62 del Decreto 480 de 2018, por tanto, no podrá acceder al apoyo de movilidad.`;
+        tarjeta.innerHTML = `<span class="icono">⚠️</span>${consejero.Nombre} presenta consejería inactiva en el Sistema Distrital de Arte, Cultura y Patrimonio por trámite en curso de alguna de las causales del Artículo 62 del Decreto 480 de 2018, por tanto, no podrá acceder a ningún incentivo dirigido a consejeras y consejeros del Sistema.`;
         reproducirSonido("inactivo");
       }
     } else {
