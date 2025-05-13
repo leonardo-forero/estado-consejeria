@@ -5,7 +5,6 @@ body {
     background-color: #6f4c9c; /* Color institucional de fondo */
 }
 
-
 h1 {
     color: #ffb71b; /* Color institucional para el título */
 }
@@ -35,11 +34,21 @@ button {
     cursor: pointer;
 }
 
-#resultado {
+/* Botón de regreso */
+.btn-regreso {
+    display: inline-block;
+    background-color: #ffb71b;
+    color: #6f4c9c;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
     margin-top: 20px;
-    font-size: 18px;
-    font-weight: bold;
-    color: white; /* Texto en blanco */
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-regreso:hover {
+    background-color: #ffd454;
 }
 
 /* Estilo para la tarjeta */
@@ -58,4 +67,19 @@ button {
     font-size: 48px;
     display: block;
     margin-bottom: 10px;
+}
+
+/* Adaptación para pantallas pequeñas */
+@media (max-width: 600px) {
+    body {
+        margin-top: 20px;
+        padding: 10px;
+    }
+    h1 {
+        font-size: 1.5em;
+    }
+    input, button, .btn-regreso {
+        width: 100%;
+        margin-bottom: 15px;
+    }
 }
