@@ -34,6 +34,13 @@ button {
     cursor: pointer;
 }
 
+#resultado {
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    color: white; /* Texto en blanco */
+}
+
 /* Botón de regreso */
 .btn-regreso {
     display: inline-block;
@@ -69,17 +76,28 @@ button {
     margin-bottom: 10px;
 }
 
-/* Adaptación para pantallas pequeñas */
-@media (max-width: 600px) {
+/* Adaptación para la imagen en móviles */
+img.logo-sistema {
+    max-width: 100%; /* Se adapta al tamaño del contenedor */
+    height: auto;    /* Mantiene la proporción */
+}
+
+/* Adaptaciones para móviles */
+@media (max-width: 768px) {
     body {
-        margin-top: 20px;
-        padding: 10px;
+        margin-top: 20px; /* Menos espacio en pantallas pequeñas */
     }
-    h1 {
-        font-size: 1.5em;
+    
+    input {
+        width: 90%; /* Hace que el campo de entrada sea más grande en móviles */
     }
-    input, button, .btn-regreso {
-        width: 100%;
-        margin-bottom: 15px;
+
+    button {
+        width: 90%; /* El botón también se adapta al ancho de la pantalla */
+        margin-top: 10px;
+    }
+
+    #resultado {
+        font-size: 16px; /* Ajusta el tamaño de la fuente para pantallas pequeñas */
     }
 }
