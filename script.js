@@ -55,12 +55,20 @@ function reproducirSonido(tipo) {
   audio.play();
 }
 
-// Función para generar PDF con el formato oficial
+// Función para generar PDF con el formato oficial e imágenes externas
 function generarCertificado() {
   if (!consejeroEncontrado) return;
 
   const { jsPDF } = window.jspdf;
   const doc = new jsPDF();
+
+  // ==== Rutas de las imágenes (en carpeta Transmilenio) ====
+  const encabezadoImg = "Transmilenio/encabezado.png";
+  const pieIzqImg = "Transmilenio/piedepagina1.png";
+  const pieDerImg = "Transmilenio/piedepagina2.png";
+
+  // ==== Encabezado ====
+  doc.addImage(encabezadoImg, "PNG", 40, 5, 130, 20);
 
   // ===== TÍTULO PRINCIPAL =====
   doc.setFont("helvetica", "bold");
@@ -68,18 +76,18 @@ function generarCertificado() {
   doc.text(
     "EL SUSCRITO DIRECTOR DE ASUNTOS LOCALES Y PARTICIPACIÓN DE LA SECRETARÍA DE",
     105,
-    20,
+    35,
     { align: "center" }
   );
   doc.text(
     "CULTURA, RECREACIÓN Y DEPORTE",
     105,
-    26,
+    41,
     { align: "center" }
   );
 
   // Espacios (3 enters)
-  let y = 35;
+  let y = 56;
 
   // ===== SUBTÍTULO =====
   doc.text("HACE CONSTAR QUE:", 105, y, { align: "center" });
@@ -120,6 +128,10 @@ function generarCertificado() {
   doc.text("Director de Asuntos Locales y Participación", 105, y, { align: "center" });
   y += 7;
   doc.text("Secretaría de Cultura, Recreación y Deporte", 105, y, { align: "center" });
+
+  // ==== Pies de página ====
+  doc.addImage(pieIzqImg, "PNG", 15, 270, 80, 15);
+  doc.addImage(pieDerImg, "PNG", 115, 265, 80, 25);
 
   // Guardar PDF
   doc.save(`Certificado_Consejero_${consejeroEncontrado["No. Documento"]}.pdf`);
