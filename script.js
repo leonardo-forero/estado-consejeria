@@ -66,9 +66,15 @@ function generarCertificado() {
   doc.setFont("helvetica", "bold");
   doc.setFontSize(11);
   doc.text(
-    "EL SUSCRITO DIRECTOR DE ASUNTOS LOCALES Y PARTICIPACIÓN DE LA SECRETARÍA DE CULTURA, RECREACIÓN Y DEPORTE",
+    "EL SUSCRITO DIRECTOR DE ASUNTOS LOCALES Y PARTICIPACIÓN DE LA SECRETARÍA DE",
     105,
     20,
+    { align: "center" }
+  );
+  doc.text(
+    "CULTURA, RECREACIÓN Y DEPORTE",
+    105,
+    26,
     { align: "center" }
   );
 
