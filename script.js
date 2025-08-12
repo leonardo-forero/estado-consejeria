@@ -55,31 +55,20 @@ function reproducirSonido(tipo) {
   audio.play();
 }
 
-// Función para generar PDF con el formato oficial e imágenes en la misma carpeta
-async function generarCertificado() {
+// Función para generar PDF con el formato oficial e imágenes externas
+function generarCertificado() {
   if (!consejeroEncontrado) return;
 
   const { jsPDF } = window.jspdf;
   const doc = new jsPDF();
 
-  // Función para cargar imagen y convertir a Base64
-  async function loadImageBase64(url) {
-    const response = await fetch(url);
-    const blob = await response.blob();
-    return new Promise((resolve) => {
-      const reader = new FileReader();
-      reader.onloadend = () => resolve(reader.result);
-      reader.readAsDataURL(blob);
-    });
-  }
-
-  // Cargar imágenes desde la misma carpeta
-  const encabezadoImg = await loadImageBase64("encabezado.png");
-  const pieIzqImg = await loadImageBase64("piedepagina1.png");
-  const pieDerImg = await loadImageBase64("piedepagina2.png");
+  // ==== Rutas de las imágenes (en la misma carpeta) ====
+  const encabezadoImg = "encabezado.png";
+  const pieIzqImg = "piedepagina1.png";
+  const pieDerImg = "piedepagina2.png";
 
   // ==== Encabezado ====
-  doc.addImage(encabezadoImg, "PNG", 40, 5, 130, 20);
+  doc.addImage(encabezadoImg, "PNG", 40, 5, 0, 0); // tamaño original
 
   // ===== TÍTULO PRINCIPAL =====
   doc.setFont("helvetica", "bold");
@@ -97,6 +86,7 @@ async function generarCertificado() {
     { align: "center" }
   );
 
+  // Espacios (3 enters)
   let y = 56;
 
   // ===== SUBTÍTULO =====
@@ -140,8 +130,8 @@ async function generarCertificado() {
   doc.text("Secretaría de Cultura, Recreación y Deporte", 105, y, { align: "center" });
 
   // ==== Pies de página ====
-  doc.addImage(pieIzqImg, "PNG", 15, 270, 80, 15);
-  doc.addImage(pieDerImg, "PNG", 115, 265, 80, 25);
+  doc.addImage(pieIzqImg, "PNG", 15, 270, 0, 0); // tamaño original
+  doc.addImage(pieDerImg, "PNG", 115, 265, 0, 0); // tamaño original
 
   // Guardar PDF
   doc.save(`Certificado_Consejero_${consejeroEncontrado["No. Documento"]}.pdf`);
