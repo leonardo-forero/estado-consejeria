@@ -55,17 +55,28 @@ function reproducirSonido(tipo) {
   audio.play();
 }
 
-// Función para generar PDF con el formato oficial e imágenes externas
-function generarCertificado() {
+// Función para generar PDF con el formato oficial e imágenes en la misma carpeta
+async function generarCertificado() {
   if (!consejeroEncontrado) return;
 
   const { jsPDF } = window.jspdf;
   const doc = new jsPDF();
 
-  // ==== Rutas de las imágenes (en carpeta Transmilenio) ====
-  const encabezadoImg = "Transmilenio/encabezado.png";
-  const pieIzqImg = "Transmilenio/piedepagina1.png";
-  const pieDerImg = "Transmilenio/piedepagina2.png";
+  // Función para cargar imagen y convertir a Base64
+  async function loadImageBase64(url) {
+    const response = await fetch(url);
+    const blob = await response.blob();
+    return new Promise((resolve) => {
+      const reader = new FileReader();
+      reader.onloadend = () => resolve(reader.result);
+      reader.readAsDataURL(blob);
+    });
+  }
+
+  // Cargar imágenes desde la misma carpeta
+  const encabezadoImg = await loadImageBase64("encabezado.png");
+  const pieIzqImg = await loadImageBase64("piedepagina1.png");
+  const pieDerImg = await loadImageBase64("piedepagina2.png");
 
   // ==== Encabezado ====
   doc.addImage(encabezadoImg, "PNG", 40, 5, 130, 20);
@@ -86,7 +97,6 @@ function generarCertificado() {
     { align: "center" }
   );
 
-  // Espacios (3 enters)
   let y = 56;
 
   // ===== SUBTÍTULO =====
