@@ -62,7 +62,7 @@ function generarCertificado() {
   const { jsPDF } = window.jspdf;
   const doc = new jsPDF();
 
-  // ==== Rutas de las imágenes (misma carpeta) ====
+  // ==== Rutas de las imágenes ====
   const encabezadoImg = "encabezado.png";
   const pieIzqImg = "piedepagina1.png";
   const pieDerImg = "piedepagina2.png";
@@ -75,20 +75,24 @@ function generarCertificado() {
   // ===== TÍTULO PRINCIPAL =====
   doc.setFont("helvetica", "bold");
   doc.setFontSize(11);
+
+  // 10 "enters" → desplazamos hacia abajo
+  let yTitulo = encabezadoAlto + (10 * 5); // cada "enter" ~5 mm
+
   doc.text(
     "EL SUSCRITO DIRECTOR DE ASUNTOS LOCALES Y PARTICIPACIÓN DE LA SECRETARÍA DE",
     105,
-    encabezadoAlto + 15,
+    yTitulo,
     { align: "center" }
   );
   doc.text(
     "CULTURA, RECREACIÓN Y DEPORTE",
     105,
-    encabezadoAlto + 21,
+    yTitulo + 6,
     { align: "center" }
   );
 
-  let y = encabezadoAlto + 36;
+  let y = yTitulo + 21;
 
   // ===== SUBTÍTULO =====
   doc.text("HACE CONSTAR QUE:", 105, y, { align: "center" });
@@ -131,11 +135,11 @@ function generarCertificado() {
   doc.text("Secretaría de Cultura, Recreación y Deporte", 105, y, { align: "center" });
 
   // ==== Pies de página ====
-  const pieIzqAncho = (80 * 2) / 3; // reducido a 2/3
+  const pieIzqAncho = (80 * 2) / 3;
   const pieIzqAlto = pieIzqAncho * 0.362;
   doc.addImage(pieIzqImg, "PNG", 15, 297 - pieIzqAlto - 5, pieIzqAncho, pieIzqAlto);
 
-  const pieDerAncho = 40 / 2; // reducido a la mitad
+  const pieDerAncho = 40 / 2;
   const pieDerAlto = pieDerAncho * 1.204;
   doc.addImage(pieDerImg, "PNG", 210 - pieDerAncho - 15, 297 - pieDerAlto - 5, pieDerAncho, pieDerAlto);
 
