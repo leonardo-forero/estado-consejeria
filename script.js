@@ -68,7 +68,7 @@ function generarCertificado() {
   const pieDerImg = "piedepagina2.png";
 
   // ==== Encabezado ====
-  const encabezadoAncho = 130;
+  const encabezadoAncho = (130 * 2) / 3; // reducido a 2/3
   const encabezadoAlto = encabezadoAncho * 0.234; 
   doc.addImage(encabezadoImg, "PNG", (210 - encabezadoAncho) / 2, 5, encabezadoAncho, encabezadoAlto);
 
@@ -131,11 +131,11 @@ function generarCertificado() {
   doc.text("Secretaría de Cultura, Recreación y Deporte", 105, y, { align: "center" });
 
   // ==== Pies de página ====
-  const pieIzqAncho = 80;
+  const pieIzqAncho = (80 * 2) / 3; // reducido a 2/3
   const pieIzqAlto = pieIzqAncho * 0.362;
   doc.addImage(pieIzqImg, "PNG", 15, 297 - pieIzqAlto - 5, pieIzqAncho, pieIzqAlto);
 
-  const pieDerAncho = 40;
+  const pieDerAncho = 40 / 2; // reducido a la mitad
   const pieDerAlto = pieDerAncho * 1.204;
   doc.addImage(pieDerImg, "PNG", 210 - pieDerAncho - 15, 297 - pieDerAlto - 5, pieDerAncho, pieDerAlto);
 
