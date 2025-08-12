@@ -55,34 +55,65 @@ function reproducirSonido(tipo) {
   audio.play();
 }
 
-// Función para generar PDF con jsPDF
+// Función para generar PDF con el formato oficial
 function generarCertificado() {
   if (!consejeroEncontrado) return;
 
   const { jsPDF } = window.jspdf;
   const doc = new jsPDF();
 
-  // Encabezado
-  doc.setFontSize(16);
-  doc.text("CERTIFICADO DE CONSEJERÍA", 105, 20, { align: "center" });
+  // ===== TÍTULO PRINCIPAL =====
+  doc.setFont("helvetica", "bold");
+  doc.setFontSize(11);
+  doc.text(
+    "EL SUSCRITO DIRECTOR DE ASUNTOS LOCALES Y PARTICIPACIÓN DE LA SECRETARÍA DE CULTURA, RECREACIÓN Y DEPORTE",
+    105,
+    20,
+    { align: "center" }
+  );
 
-  // Nombre y documento
-  doc.setFontSize(12);
-  doc.text(`Nombre: ${consejeroEncontrado.Nombre}`, 20, 50);
-  doc.text(`Documento: ${consejeroEncontrado["No. Documento"]}`, 20, 60);
+  // Espacios (3 enters)
+  let y = 35;
 
-  // Estado
-  let estadoTexto = "";
-  if (consejeroEncontrado.Estado.toLowerCase() === "activo") {
-    estadoTexto = "Se certifica que el(a) consejero(a) se encuentra ACTIVO(a) en el Sistema Distrital de Arte, Cultura y Patrimonio.";
-  } else {
-    estadoTexto = "Se certifica que el(a) consejero(a) se encuentra INACTIVO(a) en el Sistema Distrital de Arte, Cultura y Patrimonio.";
-  }
-  doc.text(estadoTexto, 20, 80, { maxWidth: 170 });
+  // ===== SUBTÍTULO =====
+  doc.text("HACE CONSTAR QUE:", 105, y, { align: "center" });
+  y += 15;
 
-  // Fecha
-  const fecha = new Date().toLocaleDateString("es-CO");
-  doc.text(`Fecha de expedición: ${fecha}`, 20, 110);
+  // ===== PÁRRAFO 1 =====
+  doc.setFont("helvetica", "normal");
+  const parrafo1 =
+    `${consejeroEncontrado.Nombre}, identificado(a) con cédula de ciudadanía número ${consejeroEncontrado["No. Documento"]}, ` +
+    `surtió el proceso de elección popular establecido por el Sistema Distrital de Arte, Cultura y Patrimonio y fue elegido(a) como consejero(a) ` +
+    `por el periodo 2023-2027, según resolución de nombramiento 551 del 28 de julio de 2023.`;
+  doc.text(parrafo1, 20, y, { maxWidth: 170, align: "justify" });
+  y += 30;
+
+  // ===== PÁRRAFO 2 =====
+  const estadoTexto = consejeroEncontrado.Estado.toLowerCase() === "activo" ? "ACTIVA" : "INACTIVA";
+  const parrafo2 =
+    `A la fecha de expedición de la presente certificación, cuenta con Consejería ${estadoTexto}, ` +
+    `en los términos de lo señalado en el artículo 17 del Decreto Distrital 336 de 2022.`;
+  doc.text(parrafo2, 20, y, { maxWidth: 170, align: "justify" });
+  y += 20;
+
+  // ===== PÁRRAFO 3 =====
+  const fechaHoy = new Date();
+  const dia = fechaHoy.getDate();
+  const mes = fechaHoy.toLocaleString("es-ES", { month: "long" });
+  const año = fechaHoy.getFullYear();
+  const parrafo3 =
+    `La anterior certificación se expide a los ${dia} días del mes de ${mes} de ${año} por solicitud del interesado(a).`;
+  doc.text(parrafo3, 20, y, { maxWidth: 170, align: "justify" });
+  y += 30;
+
+  // ===== FIRMAS =====
+  doc.setFont("helvetica", "bold");
+  doc.text("ANDRÉS FELIPE JARA MORENO", 105, y, { align: "center" });
+  y += 7;
+  doc.setFont("helvetica", "normal");
+  doc.text("Director de Asuntos Locales y Participación", 105, y, { align: "center" });
+  y += 7;
+  doc.text("Secretaría de Cultura, Recreación y Deporte", 105, y, { align: "center" });
 
   // Guardar PDF
   doc.save(`Certificado_Consejero_${consejeroEncontrado["No. Documento"]}.pdf`);
