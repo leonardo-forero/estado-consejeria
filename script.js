@@ -142,8 +142,8 @@ function generarCertificado() {
 
   doc.setFont("helvetica", "normal");
   doc.text(
-    "Este certificado ha sido generado automáticamente desde el portal Radar Cultural.",
-    20, // margen izquierdo
+    "Este certificado ha sido generado automáticamente desde el portal web Radar Cultural.",
+    30, // margen izquierdo
     y,  // posición vertical
     { maxWidth: 170, align: "justify" } // ancho y justificación
   );
