@@ -124,7 +124,7 @@ function generarCertificado() {
   const parrafo3 =
     `La anterior certificación se expide a los ${dia} días del mes de ${mes} de ${año} por solicitud del interesado(a).`;
   doc.text(parrafo3, 20, y, { maxWidth: 170, align: "justify" });
-  y += 30;
+  y += 40;
 
   // ===== FIRMAS =====
   doc.setFont("helvetica", "bold");
