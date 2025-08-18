@@ -68,7 +68,7 @@ function generarCertificado() {
   const pieDerImg = "piedepagina2.png";
 
   // ==== Encabezado ====
-  const encabezadoAncho = (130 * 2) / 3; // reducido a 2/3
+  const encabezadoAncho = 130 / 2; // reducido a 2/3
   const encabezadoAlto = encabezadoAncho * 0.234; 
   doc.addImage(encabezadoImg, "PNG", (210 - encabezadoAncho) / 2, 5, encabezadoAncho, encabezadoAlto);
 
@@ -143,7 +143,7 @@ function generarCertificado() {
   doc.setFont("helvetica", "normal");
   doc.text(
     "Este certificado ha sido generado automáticamente desde el portal web Radar Cultural.",
-    30, // margen izquierdo
+    31, // margen izquierdo
     y,  // posición vertical
     { maxWidth: 170, align: "justify" } // ancho y justificación
   );
