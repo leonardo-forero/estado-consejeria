@@ -138,7 +138,7 @@ function generarCertificado() {
    
   // ===== NOTA =====
   doc.setFont("helvetica", "bold");
-  doc.text("Nota:", 20, y); // negrilla solo en "Nota:"
+  doc.text("Nota:", 20, y); // negrilla
 
   doc.setFont("helvetica", "normal");
   doc.text(
@@ -148,7 +148,7 @@ function generarCertificado() {
     { maxWidth: 170, align: "justify" } // ancho y justificación
   );
 
-  y += 5; // salto de línea más amplio
+  y += 5; // salto de línea
 
   doc.text(
     "Puede verificar la autenticidad del mismo a través del correo sistemaparticipacion@scrd.gov.co",
