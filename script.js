@@ -76,7 +76,7 @@ function generarCertificado() {
   doc.setFont("helvetica", "bold");
   doc.setFontSize(11);
 
-  // 10 "enters" → desplazamos hacia abajo
+  // 10 espacios hacia abajo
   let yTitulo = encabezadoAlto + (10 * 5); // cada "enter" ~5 mm
 
   doc.text(
@@ -134,15 +134,28 @@ function generarCertificado() {
   doc.text("Director de Asuntos Locales y Participación", 105, y, { align: "center" });
   y += 4;
   doc.text("Secretaría de Cultura, Recreación y Deporte", 105, y, { align: "center" });
-  y += 60;
+  y += 50;
    
   // ===== NOTA =====
   doc.setFont("helvetica", "bold");
   doc.text("Nota:", 20, y); // negrilla solo en "Nota:"
+
   doc.setFont("helvetica", "normal");
-  doc.text("Este certificado ha sido generado automáticamente desde el portal Radar Cultural.", 38, y);
-  y += 5;
-  doc.text("Puede verificar la autenticidad del mismo a través del correo sistemaparticipacion@scrd.gov.co", 20, y);
+  doc.text(
+    "Este certificado ha sido generado automáticamente desde el portal Radar Cultural.",
+    20, // margen izquierdo
+    y,  // posición vertical
+    { maxWidth: 170, align: "justify" } // ancho y justificación
+  );
+
+  y += 5; // salto de línea más amplio
+
+  doc.text(
+    "Puede verificar la autenticidad del mismo a través del correo sistemaparticipacion@scrd.gov.co",
+    20,
+    y,
+    { maxWidth: 170, align: "justify" }
+  );
 
   // ==== Pies de página ====
   const pieIzqAncho = (80 * 2) / 3;
