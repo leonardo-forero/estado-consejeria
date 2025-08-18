@@ -124,7 +124,7 @@ function generarCertificado() {
   const parrafo3 =
     `La anterior certificación se expide a los ${dia} días del mes de ${mes} de ${año} por solicitud del interesado(a).`;
   doc.text(parrafo3, 20, y, { maxWidth: 170, align: "justify" });
-  y += 30;
+  y += 60;
 
   // ===== FIRMAS =====
   doc.setFont("helvetica", "bold");
@@ -134,13 +134,15 @@ function generarCertificado() {
   doc.text("Director de Asuntos Locales y Participación", 105, y, { align: "center" });
   y += 4;
   doc.text("Secretaría de Cultura, Recreación y Deporte", 105, y, { align: "center" });
-   y += 30;
+  y += 30;
+   
   // ===== NOTA =====
   doc.setFont("helvetica", "bold");
   doc.text("Nota:", 20, y); // negrilla solo en "Nota:"
 
   doc.setFont("helvetica", "normal");
   doc.text("Este certificado ha sido generado automáticamente desde el portal Radar Cultural", 38, y);
+  y += 7;
   doc.text("Puede verificar la autenticidad del mismo a través del correo sistemaparticipacion@scrd.gov.co", 20, y);
 
   // ==== Pies de página ====
