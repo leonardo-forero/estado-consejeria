@@ -140,7 +140,7 @@ function generarCertificado() {
   doc.setFont("helvetica", "bold");
   doc.text("Nota:", 20, y); // negrilla solo en "Nota:"
   doc.setFont("helvetica", "normal");
-  doc.text("Este certificado ha sido generado automáticamente desde el portal Radar Cultural", 38, y);
+  doc.text("Este certificado ha sido generado automáticamente desde el portal Radar Cultural.", 38, y);
   y += 5;
   doc.text("Puede verificar la autenticidad del mismo a través del correo sistemaparticipacion@scrd.gov.co", 20, y);
 
