@@ -134,6 +134,29 @@ function generarCertificado() {
   doc.text("Director de Asuntos Locales y Participación", 105, y, { align: "center" });
   y += 7;
   doc.text("Secretaría de Cultura, Recreación y Deporte", 105, y, { align: "center" });
+  
+  // ===== NOTA =====
+  doc.setFont("helvetica", "bold");
+  doc.text("Nota:", 20, y); // negrilla solo en "Nota:"
+
+  doc.setFont("helvetica", "normal");
+  doc.text(" Este certificado ha sido generado automáticamente desde el portal ", 38, y);
+
+  doc.setFont("helvetica", "italic");
+  doc.text("Radar Cultural.", 160, y);
+
+  y += 7;
+  doc.setFont("helvetica", "normal");
+  doc.text("Puede verificar la autenticidad del mismo a través del correo ", 20, y);
+
+  // correo subrayado y azul
+  doc.setTextColor(0, 0, 255);
+  doc.setFont("helvetica", "underline");
+  doc.text("sistemaparticipacion@scrd.gov.co", 160, y);
+
+  // restaurar color y fuente
+  doc.setTextColor(0, 0, 0);
+  doc.setFont("helvetica", "normal");
 
   // ==== Pies de página ====
   const pieIzqAncho = (80 * 2) / 3;
