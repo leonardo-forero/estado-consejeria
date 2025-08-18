@@ -103,7 +103,8 @@ function generarCertificado() {
   const parrafo1 =
     `${consejeroEncontrado.Nombre}, identificado(a) con cédula de ciudadanía número ${consejeroEncontrado["No. Documento"]}, ` +
     `surtió el proceso de elección popular establecido por el Sistema Distrital de Arte, Cultura y Patrimonio y fue elegido(a) como consejero(a) ` +
-    `por el periodo 2023-2027, según resolución de nombramiento 551 del 28 de julio de 2023.`;
+    `representante por el sector de ${consejeroEncontrado.Sector} ante el ${consejeroEncontrado.Consejo} ` +
+    `por el periodo 2023-2027, según ${consejeroEncontrado.Resolución}.`;
   doc.text(parrafo1, 20, y, { maxWidth: 170, align: "justify" });
   y += 30;
 
