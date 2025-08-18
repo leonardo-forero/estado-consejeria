@@ -68,7 +68,7 @@ function generarCertificado() {
   const pieDerImg = "piedepagina2.png";
 
   // ==== Encabezado ====
-  const encabezadoAncho = 130 / 2; // reducido a 2/3
+  const encabezadoAncho = (130 * 2) / 3; // reducido a 2/3
   const encabezadoAlto = encabezadoAncho * 0.234; 
   doc.addImage(encabezadoImg, "PNG", (210 - encabezadoAncho) / 2, 5, encabezadoAncho, encabezadoAlto);
 
