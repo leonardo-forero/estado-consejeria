@@ -128,7 +128,7 @@ function generarCertificado() {
 
   // ===== FIRMAS =====
   doc.setFont("helvetica", "bold");
-  doc.text("ANDRÉS FELIPE JARA MORENO", 105, y, { align: "center" });
+  doc.text("RAFAEL LINO DÍAZ RIVERA", 105, y, { align: "center" });
   y += 4;
   doc.setFont("helvetica", "normal");
   doc.text("Director de Asuntos Locales y Participación", 105, y, { align: "center" });
