@@ -128,10 +128,10 @@ function generarCertificado() {
 
   // ===== FIRMAS =====
   doc.setFont("helvetica", "bold");
-  doc.text("MARIANA ÁLVAREZ MATALLANA", 105, y, { align: "center" });
+  doc.text("JULIÁN FELIPE DUARTE ÁLVAREZ", 105, y, { align: "center" });
   y += 4;
   doc.setFont("helvetica", "normal");
-  doc.text("Directora de Asuntos Locales y Participación", 105, y, { align: "center" });
+  doc.text("Director de Asuntos Locales y Participación", 105, y, { align: "center" });
   y += 4;
   doc.text("Secretaría de Cultura, Recreación y Deporte", 105, y, { align: "center" });
   y += 50;
